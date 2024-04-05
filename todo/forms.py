@@ -11,3 +11,8 @@ class TodoForm(forms.ModelForm):
         widgets={
             "title":forms.TextInput(attrs={'placeholder':"Todo"})
         }
+        error_messages={
+            "title":{"required":"a"},
+            "is_completed":{"required":"b"},
+            "date":{"required":"c"}
+        }

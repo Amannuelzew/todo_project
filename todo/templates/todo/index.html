@@ -2,6 +2,18 @@
 {% block titile %}Create Todos{% endblock titile %}
 
 {% block content %}
-    {{form}}
-    <button>ADD</button>
+    <h1>Todos List </h1>
+    <form method="POST" action="/">
+        {{form}}
+        {% csrf_token %}
+        <button>ADD</button>
+    </form>
+
+    <section>
+        <ul>
+            {% for todo in todos %}
+             <li class="{% if todo.is_completed %}completed{% endif %}">{{todo.title}} <a href="">Edit</a> <a href="">Delete</a></li>
+            {% endfor %}
+        </ul>
+    </section>
 {% endblock content %}
