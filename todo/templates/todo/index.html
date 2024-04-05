@@ -4,7 +4,7 @@
 {% block content %}
     <h1>Todos List </h1>
     <form method="POST" action="/">
-        {{form}}
+        {{form.as_p}}
         {% csrf_token %}
         <button>ADD</button>
     </form>
@@ -12,7 +12,7 @@
     <section>
         <ul>
             {% for todo in todos %}
-             <li class="{% if todo.is_completed %}completed{% endif %}">{{todo.title}} <a href="">Edit</a> <a href="">Delete</a></li>
+             <li>{{todo.title}} <a href="{% url "edit" todo.id %}">Edit</a> <a href="{% url "delete" todo.id %}">Delete</a></li>
             {% endfor %}
         </ul>
     </section>

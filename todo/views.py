@@ -43,3 +43,29 @@ def index(request):
     form=TodoForm()
     todos=Todo.objects.all().order_by("-date")
     return render(request,"todo/index.html",{"form":form,"todos":todos})
+
+def edit(request,id):
+    if request.method=="POST":
+        todo=Todo.objects.get(pk=id)
+        form=TodoForm(request.POST,instance=todo)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/")
+        return render(request,"todo/edit.html",{"form":form})
+    todo=Todo.objects.get(pk=id)
+    form=TodoForm(initial={"title":todo.title})
+    return render(request,"todo/edit.html",{"form":form,"todo":todo})
+
+
+def delete(request,id):
+    if request.method=="POST":
+        todo=Todo.objects.get(pk=id)
+        todo.delete()
+        todos=Todo.objects.all()
+        print(todos)
+        return HttpResponseRedirect("/")
+    todo=Todo.objects.get(pk=id)
+    form=TodoForm(initial={"title":todo.title})
+    return render(request,"todo/delete.html",{"form":form,"todo":todo})
+      
+    
