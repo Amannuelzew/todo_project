@@ -1,20 +1,38 @@
 {% extends "layout.html" %}
+{% load static %}
+{% block css %}<link rel="stylesheet" href="{% static "todo/index.css" %}">{% endblock css %}
 {% block titile %}Create Todos{% endblock titile %}
 
- 
 {% block content %}
-    <h1>Todos List </h1>
-    <form method="POST" action="/">
-        {{form.as_p}}
-        {% csrf_token %}
-        <button>ADD</button>
-    </form>
 
-    <section>
-        <ul>
-            {% for todo in todos %}
-             <li>{{todo.title}} <a href="{% url "edit" todo.id %}">Edit</a> <a href="{% url "delete" todo.id %}">Delete</a></li>
-            {% endfor %}
-        </ul>
-    </section>
+<main class="container">
+    <div id="newtask">
+        <form  method="POST" action="/">
+            {{form}}
+            {% csrf_token %}
+            <button id="push">Add</button>
+            {% comment %} <input type="text" class="txt-input" placeholder="Create a new todo..." spellcheck="false" autocomplete="off" id="addt"> {% endcomment %}
+        </form>
+    </div>
+
+  
+  <div id="tasks">
+    {% for todo in todos %}
+      <div class="task">
+                <span id="taskname">
+                    {{todo.title}} 
+                </span>
+                <div > 
+                      <a  href="{% url "edit" todo.id %}">Edit</a> 
+                      <span  >|</span> 
+                      <a class="delete-button" href="{% url "delete" todo.id %}">Delete</a>    
+                </div>
+             
+      </div>
+    {% endfor %}
+
+  </div> 
+
+   
+</main>
 {% endblock content %}

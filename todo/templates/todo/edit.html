@@ -1,13 +1,20 @@
 {% extends "layout.html" %}
+{% load static %}
+{% block css %}<link rel="stylesheet" href="{% static "todo/index.css" %}">{% endblock css %}
 {% block titile %}Create Todos{% endblock titile %}
 
 {% block content %}
-    <h1>Todos List </h1>
-    <form method="POST" action="{% url "edit" todo.id %}">
+ <main class="container">
+        <div id="newtask">
+          <form method="POST" action="{% url "edit" todo.id %}">
         {{form.as_p}}
         {% csrf_token %}
         <button>Edit</button>
     </form>
+        </div>
+  </main>
+  
+    
 
    
 {% endblock content %}

@@ -9,7 +9,7 @@ class TodoForm(forms.ModelForm):
             "title":""
         }
         widgets={
-            "title":forms.TextInput(attrs={'placeholder':"Todo"})
+            "title":forms.TextInput(attrs={'placeholder':"Todo","spellcheck":"false","autocomplete":"off"})
         }
         error_messages={
             "title":{"required":"a"},

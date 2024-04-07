@@ -4,11 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="This is a front-end coding challenge - TODO APP"
+    />
     <title>{% block title %}Todo{% endblock title %}</title>
-    <link rel="stylesheet" href="{% static "app.css" %} %}">
+    <link rel="stylesheet" href="{% static "app.css" %}">
     {% block css %}{% endblock css %}
 </head>
 <body>
+    <header >
+      <h1>TODO</h1>
+    </header>
     {% block content %}{% endblock content %}
     
 </body>

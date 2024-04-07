@@ -61,8 +61,6 @@ def delete(request,id):
     if request.method=="POST":
         todo=Todo.objects.get(pk=id)
         todo.delete()
-        todos=Todo.objects.all()
-        print(todos)
         return HttpResponseRedirect("/")
     todo=Todo.objects.get(pk=id)
     form=TodoForm(initial={"title":todo.title})
