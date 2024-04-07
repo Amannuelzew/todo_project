@@ -11,7 +11,7 @@
 }
 #newtask {
   position: relative;
-  margin: 40px 50px;
+  margin: 10px 50px;
 }
 #newtask input {
   width: 100%;
@@ -29,6 +29,10 @@
 #newtask input:focus {
   outline: none;
   border-color: #0d75ec;
+}
+#delete {
+  outline: none;
+  background-color: #de1515 !important;
 }
 #newtask button {
   position: relative;

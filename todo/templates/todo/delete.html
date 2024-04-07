@@ -6,11 +6,19 @@
 {% block content %}
 
     <main class="container">
+        <div id="tasks">
+    
+        <div class="task">
+                    <span id="taskname">
+                        {{todo.title}} 
+                    </span>
+        </div>
+
+        </div> 
         <div id="newtask">
             <form method="POST" action="{% url "delete" todo.id %}">
-                {{form.as_p}}
                 {% csrf_token %}
-                <button>Delete</button>
+                <button id="delete">Delete</button>
             </form>
         </div>
     </main>

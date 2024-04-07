@@ -14,3 +14,7 @@ h1 {
   color: white;
   margin-top: 5%;
 }
+a {
+  text-decoration: inherit;
+  color: inherit;
+}

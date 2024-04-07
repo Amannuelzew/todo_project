@@ -63,7 +63,6 @@ def delete(request,id):
         todo.delete()
         return HttpResponseRedirect("/")
     todo=Todo.objects.get(pk=id)
-    form=TodoForm(initial={"title":todo.title})
-    return render(request,"todo/delete.html",{"form":form,"todo":todo})
+    return render(request,"todo/delete.html",{"todo":todo})
       
     
